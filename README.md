@@ -14,9 +14,9 @@ Now, since the developers of the multiplayer mod stopped work on it, there's no 
 What I've done basically is made a simple restart script for the server (autorestart) and another one to detect zombie mode (zombiehandler).
 There's probably better ways to make these if you know your way around better, but I do not so 🤷.
 
-autorestart will constantly check if the server is running, and if not, restart it using nohup (you don't need to know the details for this, just that this creates a log file. with the server window's outputs next to the server executable). This will take care of regular crashes where the server simply stops running.
+autorestart will constantly check if the server is running, and if not, restart it using nohup (you don't need to know the details for this, just that this creates a log file with the server window's outputs next to the server executable). This will take care of regular crashes where the server simply stops running.
 
-zombiehandler will constantly scan the server log file (nohup.out) and if it notices the message "Loaded 0 package" appears in the logs file, which it will if the server starts. in zombie mode, it will restart the server and delete the logs file.
+zombiehandler will constantly scan the server log file (nohup.out) and if it notices the message "Loaded 0 package" appears in the logs file, which it will if the server starts in zombie mode, it will restart the server and delete the logs file.
 
 # Setup
 
@@ -33,8 +33,8 @@ If you are using a gui application like winscp, set them like this.
 ![perms](https://user-images.githubusercontent.com/78240158/148135220-c02cef83-808c-46ff-81fe-1e150d5bb602.png)
 
 Next, if you try to run them, you might get an error like "/bin/bash^M: bad interpreter: No such file or directory".
-To fix this, run cd to the directory these two files are in and run "sed -i -e 's/\r$//' FILENAME".
-Do this for both files and they should now be executable perfectly fine!.
+To fix this, cd to the directory these two files are in and run "sed -i -e 's/\r$//' FILENAME".
+Do this for both files and they should now be executable perfectly fine!
 
 Now you can run both of them (for example "screen -d -m FILENAME", so they will keep running when you disconnect from the terminal) and they will check on your server and restart in any circumstances!
 
