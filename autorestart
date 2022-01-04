@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#keep running
+while true
+do
+#see if the server runs, if not, go to it's directory, start it with nohup, which makes it output to a logs file
+pgrep SERVEREXECUTABLENAME || cd /PATH TO SERVER EXECUTABLE && nohup ./SERVEREXECUTABLENAME
+done
