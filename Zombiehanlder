@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#keep running
+while true
+do
+#see if "Could not open package directory" appears in the log file, which it will in case of zombie mode
+if grep "Loaded 0 package" /PATH TO SERVER EXECUTABLE/nohup.out
+then
+#if it's found, stop the server, delete the logs file
+cd /PATH TO EXECUTABLE && killall -9 ./PATH TO SERVER EXECUTABLE && rm nohup.out
+fi
+done
